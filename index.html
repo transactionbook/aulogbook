@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rideshare AuLogbook — Tax logbook + receipt scanner for Uber & Didi drivers</title>
+  <meta name="description" content="The free Android logbook app built for Australian Uber and Didi drivers. Auto-tracks trips with GPS, scans fuel receipts with ML Kit OCR, syncs tolls against E-Toll statements — and produces ATO-ready tax reports.">
+  <style>
+    :root {
+      --navy: #0a0f1e;
+      --navy-deep: #050812;
+      --teal: #00e5b0;
+      --teal-dim: #00b894;
+      --neon: #39FF14;
+      --beige: #f6f1de;
+      --text: #e8edf5;
+      --text-dim: #a8b8cc;
+      --border: #1f2d45;
+      --card: #111827;
+      --card-raised: #1a2235;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+      background: radial-gradient(ellipse at top, rgba(0,229,176,0.15), transparent 60%), var(--navy);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-logo {
+      width: 120px; height: 120px;
+      margin: 0 auto 24px;
+      border-radius: 24px;
+      background: var(--card);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 40px rgba(0,229,176,0.25);
+    }
+    .hero-logo img { width: 96px; height: 96px; border-radius: 18px; }
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .hero h1 .accent { color: var(--teal); }
+    .hero .tagline {
+      font-size: 19px;
+      color: var(--text-dim);
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+    .cta-row {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-size: 16px; font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta:hover { transform: translateY(-2px); }
+    .cta-primary {
+      background: var(--teal);
+      color: var(--navy);
+      box-shadow: 0 4px 24px rgba(0,229,176,0.4);
+    }
+    .cta-primary:hover { box-shadow: 0 6px 32px rgba(0,229,176,0.55); }
+    .cta-secondary {
+      background: var(--card-raised);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    /* Pricing tease */
+    .pricing-tease {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 8px 16px;
+      background: rgba(0,229,176,0.08);
+      border: 1px solid rgba(0,229,176,0.3);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--teal);
+    }
+
+    /* Features */
+    .features {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 16px;
+      margin-bottom: 56px;
+      max-width: 580px; margin-left: auto; margin-right: auto;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      border-color: var(--teal-dim);
+      transform: translateY(-3px);
+    }
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+
+    /* Privacy */
+    .privacy-band {
+      background: var(--navy-deep);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 0;
+      text-align: center;
+    }
+    .privacy-band h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .privacy-band p {
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 16px;
+    }
+
+    /* Pricing */
+    .pricing {
+      padding: 80px 0;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+      .hero .tagline { font-size: 16px; }
+    }
+    .price-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .price-card.featured {
+      border-color: var(--teal);
+      position: relative;
+    }
+    .price-card.featured::before {
+      content: 'BEST VALUE';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 11px; font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+    .price-card h3 {
+      font-size: 16px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .price-card .amount {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .price-card .period {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .price-card ul {
+      list-style: none;
+      margin: 24px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--border);
+      text-align: left;
+    }
+    .price-card ul li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    .price-card ul li::before {
+      content: '✓ ';
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0 32px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+    }
+    footer a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+    footer .links {
+      margin-bottom: 16px;
+    }
+    footer .links a {
+      margin: 0 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-logo">
+        <img src="icon.png" alt="AuLogbook icon" onerror="this.style.display='none'">
+      </div>
+      <h1>Rideshare <span class="accent">AuLogbook</span></h1>
+      <p class="tagline">
+        The Android logbook app built for Australian Uber &amp; Didi drivers.
+        Auto-tracks trips with GPS, scans fuel receipts, syncs tolls against
+        E-Toll, and produces ATO-ready tax reports.
+      </p>
+      <div class="cta-row">
+        <a class="cta cta-primary" href="https://play.google.com/store/apps/details?id=com.rideshare.aulogbook">
+          ▶ Get it on Google Play
+        </a>
+        <a class="cta cta-secondary" href="#features">
+          See features
+        </a>
+      </div>
+      <div class="pricing-tease">
+        Free for 20 receipts · Pro from $4.99/mo · Cancel anytime
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Built for the way you actually drive</h2>
+      <p class="section-sub">
+        Every feature exists because a real rideshare driver needed it for tax time.
+        No fluff, no ads, no servers — just a clean logbook you can hand to your accountant.
+      </p>
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">🚗</div>
+          <h3>Auto-tracks every trip</h3>
+          <p>
+            GPS tracks your shift end-to-end — including deadhead legs between jobs.
+            Auto-starts when you drive 10+ km/h for 20 seconds. Survives Uber/Didi
+            being in the foreground via Android's foreground service.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <h3>Receipt scanner with OCR</h3>
+          <p>
+            Point at a fuel or service receipt — ML Kit auto-crops and reads the
+            date, total, litres, rate, GST and ABN. Verify screen flags low-confidence
+            fields so you catch OCR errors before they cost you at tax time.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Toll Sync (E-Toll)</h3>
+          <p>
+            Download the official CSV from Transport NSW E-Toll, and AuLogbook
+            auto-matches each toll charge to the right trip by time + road. Flags
+            tolls Uber/Didi may not have reimbursed you for.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>ATO-ready reports</h3>
+          <p>
+            Cents-per-km AND logbook-method calculations. Best 12-week sample
+            detection. Quarterly BAS workbooks for your accountant. CSV, PDF,
+            and multi-tab XLSX exports.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚗</div>
+          <h3>Multi-vehicle logbooks</h3>
+          <p>
+            Driving for Uber on a private plate some nights and a rented EV on others?
+            Maintain separate logbooks per vehicle, with per-shift assignment and
+            service reminders.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3>Home-leg classification</h3>
+          <p>
+            First deadhead leaving home + last deadhead returning home = private
+            (non-deductible). Between-jobs driving = business. The logbook-correct
+            split, automated.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy band -->
+  <section class="privacy-band">
+    <div class="container">
+      <h2>🔒 Your data never leaves your phone</h2>
+      <p>
+        No accounts. No servers. No analytics. No ads. Everything AuLogbook records
+        stays in app-private storage on your device. We don't see your trips, your
+        receipts, your E-Toll login, or your Uber/Didi fares — ever.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple, honest pricing</h2>
+      <p class="section-sub">
+        Free forever for casual use. Pro unlocks the features that pay for themselves
+        at tax time. Cancel anytime.
+      </p>
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <h3>Free</h3>
+          <div class="amount">$0</div>
+          <div class="period">forever</div>
+          <ul>
+            <li>Trip tracking + autostart</li>
+            <li>20 receipts (OCR scanner)</li>
+            <li>1 vehicle</li>
+            <li>Basic CSV export</li>
+            <li>Weekly + monthly reminders</li>
+          </ul>
+        </div>
+
+        <div class="price-card featured">
+          <h3>Pro</h3>
+          <div class="amount">$39<span style="font-size:24px;">/yr</span></div>
+          <div class="period">or $4.99/month · save 35%</div>
+          <ul>
+            <li><strong>Unlimited receipts</strong></li>
+            <li><strong>XLSX export</strong> (multi-tab BAS workbook)</li>
+            <li><strong>Toll Sync</strong> (E-Toll CSV matching)</li>
+            <li><strong>Multiple vehicles</strong></li>
+            <li>Best 12-week logbook window</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+
+      </div>
+      <p style="text-align:center; margin-top:32px; color:var(--text-dim); font-size:14px;">
+        Available via Google Play. Manage or cancel anytime under
+        <em>Play Store → Subscriptions</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="links">
+        <a href="https://play.google.com/store/apps/details?id=com.rideshare.aulogbook">Get the app</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="mailto:transactionbook@gmail.com">Contact</a>
+      </div>
+      <div>© 2026 Rideshare AuLogbook · Made in Australia 🇦🇺 · Built for drivers, by a driver</div>
+    </div>
+  </footer>
+
+</body>
+</html>

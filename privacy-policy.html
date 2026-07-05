@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Rideshare AuLogbook</title>
+  <meta name="description" content="Privacy Policy for Rideshare AuLogbook — the tax logbook app for Australian Uber and Didi drivers.">
+  <style>
+    :root {
+      --navy: #0a0f1e;
+      --navy-deep: #050812;
+      --teal: #00e5b0;
+      --text: #e8edf5;
+      --text-dim: #a8b8cc;
+      --border: #1f2d45;
+      --card: #111827;
+      --card-raised: #1a2235;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
+    header {
+      padding: 48px 0 32px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+      background: radial-gradient(ellipse at top, rgba(0,229,176,0.10), transparent 70%), var(--navy);
+    }
+    header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    header h1 .accent { color: var(--teal); }
+    header .meta {
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+    .summary-box {
+      background: rgba(0,229,176,0.08);
+      border: 1px solid rgba(0,229,176,0.3);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .summary-box h2 {
+      color: var(--teal);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .summary-box p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 40px 0 12px;
+      color: var(--text);
+    }
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 24px 0 8px;
+      color: var(--teal);
+    }
+    p, li {
+      font-size: 15px;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    p strong, li strong { color: var(--text); }
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    code {
+      background: var(--card-raised);
+      color: var(--teal);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .table th, .table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .table th { color: var(--text); font-weight: 700; }
+    .table td { color: var(--text-dim); }
+    .table code { background: transparent; padding: 0; color: var(--teal); }
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: var(--teal);
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Rideshare <span class="accent">AuLogbook</span></h1>
+    <div class="meta">Privacy Policy · Last updated 5 July 2026</div>
+  </header>
+
+  <div class="container">
+    <a href="/" class="back-link">← Back to AuLogbook</a>
+
+    <div class="summary-box">
+      <h2>TL;DR</h2>
+      <p>
+        <strong>AuLogbook does not collect, transmit, sell, or share your personal data.</strong>
+        Everything the app records stays on your phone. We have no servers. We do not run
+        analytics. We do not show ads. We do not have user accounts.
+      </p>
+    </div>
+
+    <p>
+      This Privacy Policy describes how Rideshare AuLogbook ("AuLogbook", "we", "the app") handles
+      your information when you use the app on your Android device.
+    </p>
+    <p>
+      <strong>Package:</strong> <code>com.rideshare.aulogbook</code><br>
+      <strong>Contact:</strong> transactionbook@gmail.com
+    </p>
+
+    <h2>1. Information the app collects</h2>
+
+    <h3>1.1 Location data (GPS)</h3>
+    <ul>
+      <li><strong>What:</strong> Continuous GPS coordinates while a shift is active, plus intermittent location samples while the autostart monitor is armed.</li>
+      <li><strong>Why:</strong> To record trip distance for tax logbook purposes (ATO logbook method) and to detect toll-road crossings.</li>
+      <li><strong>Where it goes:</strong> Stays on your device. Stored in Android's app-private storage. <strong>Never transmitted off the device.</strong></li>
+      <li><strong>Foreground vs background:</strong> Location is captured both while the app is open and while it is in the background (so tracking continues when you switch to Uber/Didi). This is essential to the app's core function — without it, trip distances would be inaccurate and your tax logbook invalid.</li>
+    </ul>
+
+    <h3>1.2 Camera + photo library access</h3>
+    <ul>
+      <li><strong>What:</strong> Camera access for scanning fuel/service receipts; photo library access for importing existing receipt photos.</li>
+      <li><strong>Why:</strong> To capture and OCR receipts for BAS / tax deduction records.</li>
+      <li><strong>Where it goes:</strong> Receipt images are stored in Android's app-private storage. Saving a copy to your phone's photo album is <strong>opt-in per receipt</strong> (a separate action you must take; never automatic).</li>
+    </ul>
+
+    <h3>1.3 Receipt + trip data</h3>
+    <ul>
+      <li><strong>What:</strong> Trip records (start/end time, distance, route summary, tolls, vehicle used) and receipt records (date, merchant, amount, GST, litres, ABN, OCR confidence).</li>
+      <li><strong>Why:</strong> These are the records the app exists to produce — your tax logbook.</li>
+      <li><strong>Where it goes:</strong> Stays on your device in AsyncStorage (private to the app). <strong>Never transmitted off the device.</strong></li>
+    </ul>
+
+    <h3>1.4 Subscription status</h3>
+    <ul>
+      <li><strong>What:</strong> Whether you have an active Pro subscription (Google Play subscription ID + purchase state).</li>
+      <li><strong>Why:</strong> To unlock Pro features (unlimited receipts, XLSX export, Toll Sync, multi-vehicle).</li>
+      <li><strong>Where it goes:</strong> Subscription validation is handled by Google Play Billing. The app reads your purchase status from Google Play on the device; we never see your payment details.</li>
+    </ul>
+
+    <h2>2. Information the app does NOT collect</h2>
+    <p>AuLogbook does <strong>not</strong> collect, store, or transmit:</p>
+    <ul>
+      <li>Your name, email, phone number, or address (unless you voluntarily enter your email in Settings for export pre-fill — and even then it stays on-device)</li>
+      <li>Your Uber or Didi account credentials, fares, or trip data</li>
+      <li>Your bank or credit card details</li>
+      <li>Your E-Toll account credentials (Toll Sync uses the official CSV export that <strong>you</strong> download from your own browser — the app never sees your E-Toll login)</li>
+      <li>Analytics data, usage statistics, or crash logs sent to a server</li>
+      <li>Advertising identifiers (we do not run ads)</li>
+      <li>Diagnostic data sent to third parties</li>
+    </ul>
+
+    <h2>3. Background location justification</h2>
+    <p>
+      AuLogbook uses background location because it is essential to the app's core function: recording
+      an accurate logbook for tax purposes. Rideshare drivers switch between AuLogbook and Uber/Didi
+      throughout a shift. If location tracking stopped when the app went to background, every shift
+      would be incorrectly recorded — making the logbook invalid for the ATO.
+    </p>
+    <p>
+      We use Android's Foreground Service (with a persistent notification) for active shifts, and the
+      autostart monitor (a lower-power background task) for detecting when a shift starts.
+    </p>
+    <p>
+      Background location is <strong>never used for advertising, analytics, or any purpose other than
+      recording your own trips</strong>.
+    </p>
+
+    <h2>4. Data sharing</h2>
+    <p>
+      AuLogbook does <strong>not</strong> share data with any third party. We have no servers, no
+      analytics, no advertising SDKs.
+    </p>
+    <p>The only data that leaves your device is:</p>
+    <ol>
+      <li><strong>When you explicitly export</strong> (CSV, XLSX, PDF, JSON backup): the file goes to wherever you choose to save or share it (your email, cloud drive, etc.). This is a user-initiated action — the app does not auto-export.</li>
+      <li><strong>When you subscribe to Pro</strong>: Google Play processes the payment; we receive only the subscription status (active/inactive), never your payment details.</li>
+    </ol>
+
+    <h2>5. Data retention + deletion</h2>
+    <ul>
+      <li>Data is retained on your device until you delete it.</li>
+      <li>You can delete individual trips and receipts via the in-app UI.</li>
+      <li>You can delete <strong>all</strong> data via Settings → Clear All Data.</li>
+      <li>Uninstalling the app deletes all data (Android wipes app-private storage on uninstall). The optional SAF backup folder (if you configured one) is the only data that survives uninstall — and that's stored in a folder you chose, controlled by you.</li>
+    </ul>
+
+    <h2>6. Children's privacy</h2>
+    <p>
+      AuLogbook is not directed at children under 13 (or the applicable age in your country). The app
+      is a business tool for adult rideshare drivers. We do not knowingly collect data from children.
+    </p>
+
+    <h2>7. Your rights</h2>
+    <p>Because we do not collect or store your data on our servers, you already have full control:</p>
+    <ul>
+      <li><strong>Access:</strong> All your data is in the app, viewable at any time.</li>
+      <li><strong>Export:</strong> Use Settings → Export to CSV / XLSX / PDF / JSON backup.</li>
+      <li><strong>Delete:</strong> Use Settings → Clear All Data, or uninstall the app.</li>
+    </ul>
+    <p>If you have a question about your data, contact us at transactionbook@gmail.com.</p>
+
+    <h2>8. Security</h2>
+    <ul>
+      <li>All data is stored in Android's app-private storage, sandboxed from other apps.</li>
+      <li>The app does not transmit data over the network (except Google Play Billing for subscriptions).</li>
+      <li>We do not store any passwords, tokens, or credentials.</li>
+    </ul>
+
+    <h2>9. International transfers</h2>
+    <p>
+      Because the app does not transmit your data anywhere, there are no international data transfers.
+      Your data stays on your device.
+    </p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>
+      If we change this Privacy Policy, we will update the date at the top of this page and notify
+      users via the app's release notes. Continued use of the app after changes constitutes acceptance.
+    </p>
+
+    <h2>11. Open source acknowledgements</h2>
+    <p>AuLogbook uses the following open-source libraries:</p>
+    <ul>
+      <li>React Native (Meta)</li>
+      <li>Expo SDK</li>
+      <li>ML Kit Text Recognition (Google, on-device OCR)</li>
+      <li>react-native-document-scanner-plugin (ML Kit document scanner)</li>
+      <li>react-native-iap (Google Play Billing wrapper)</li>
+      <li>expo-file-system, expo-location, expo-camera, expo-image-picker, expo-media-library</li>
+    </ul>
+    <p>None of these libraries transmit user data to third parties within AuLogbook's usage. ML Kit OCR runs entirely on-device.</p>
+
+    <hr>
+
+    <p>
+      <strong>Questions?</strong> Contact: <a href="mailto:transactionbook@gmail.com">transactionbook@gmail.com</a>
+    </p>
+  </div>
+
+  <footer>
+    © 2026 Rideshare AuLogbook · Made in Australia 🇦🇺
+  </footer>
+
+</body>
+</html>
