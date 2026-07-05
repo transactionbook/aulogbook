@@ -145,7 +145,7 @@ For EACH data type, answer:
 
 | Data type | Collected? | Notes |
 |---|---|---|
-| Crash logs | YES — Collected | Stored LOCALLY in AsyncStorage (visible to the user via the Crash Logs screen). NEVER sent to developer. |
+| Crash logs | YES — Collected | Stored locally in app-private storage (visible to the user via the Crash Logs screen). NEVER sent to developer. |
 | Diagnostics | NO | |
 | Other app performance data | NO | |
 

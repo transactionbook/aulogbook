@@ -22,13 +22,13 @@ The app uses your phone's GPS, camera, and photo library — but only to perform
 
 ### 1.2 Camera + photo library access
 - **What:** Camera access for scanning fuel/service receipts; photo library access for importing existing receipt photos.
-- **Why:** To capture and OCR receipts for BAS / tax deduction records.
+- **Why:** To capture and smart receipt scanning for BAS / tax deduction records.
 - **Where it goes:** Receipt images are stored in Android's app-private storage. Saving a copy to your phone's photo album is **opt-in per receipt** (a separate action you must take; never automatic).
 
 ### 1.3 Receipt + trip data
-- **What:** Trip records (start/end time, distance, route summary, tolls, vehicle used) and receipt records (date, merchant, amount, GST, litres, ABN, OCR confidence).
+- **What:** Trip records (start/end time, distance, route summary, tolls, vehicle used) and receipt records (date, merchant, amount, GST, litres, ABN, scan confidence).
 - **Why:** These are the records the app exists to produce — your tax logbook.
-- **Where it goes:** Stays on your device in AsyncStorage (private to the app). **Never transmitted off the device.**
+- **Where it goes:** Stays on your device in app-private storage. **Never transmitted off the device.**
 
 ### 1.4 Subscription status
 - **What:** Whether you have an active Pro subscription (Google Play subscription ID + purchase state).
@@ -99,18 +99,12 @@ Because the app does not transmit your data anywhere, there are no international
 
 If we change this Privacy Policy, we will update the date at the top of this page and notify users via the app's release notes. Continued use of the app after changes constitutes acceptance.
 
-## 11. Open source acknowledgements
+## 11. Implementation details
 
-AuLogbook uses the following open-source libraries (data flows described above apply to all):
-
-- React Native (Meta)
-- Expo SDK
-- ML Kit Text Recognition (Google, on-device OCR)
-- react-native-document-scanner-plugin (ML Kit document scanner)
-- react-native-iap (Google Play Billing wrapper)
-- expo-file-system, expo-location, expo-camera, expo-image-picker, expo-media-library
-
-None of these libraries transmit user data to third parties within AuLogbook's usage. ML Kit OCR runs entirely on-device.
+AuLogbook is built using industry-standard mobile development frameworks. All receipt
+scanning and smart detection runs **entirely on your device** — no images or extracted
+text are ever transmitted to any server. Specific libraries and frameworks used are
+proprietary implementation details and are not disclosed publicly.
 
 ---
 

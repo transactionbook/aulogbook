@@ -18,7 +18,7 @@ Rideshare AuLogbook
 ## Short description (max 80 chars)
 
 ```
-Free km tracking for AU Uber/Didi drivers. Auto-trips, OCR receipts, Toll Sync.
+Free km tracking for AU Uber/Didi drivers. Auto-trips, smart receipt scanning, Toll Sync.
 ```
 
 (80 chars exactly. Includes "free", "Uber", "Didi", "km tracking" — high-search-volume keywords.)
@@ -26,7 +26,7 @@ Free km tracking for AU Uber/Didi drivers. Auto-trips, OCR receipts, Toll Sync.
 ### Alternative short descriptions (A/B test in Play Console)
 
 ```
-A: Free tax logbook for AU rideshare drivers. Auto-trips, OCR receipts, Toll Sync.
+A: Free tax logbook for AU rideshare drivers. Auto-trips, smart receipt scanning, Toll Sync.
 B: Uber/Didi logbook that scans receipts + matches tolls. ATO-ready. Free to start.
 ```
 
@@ -35,7 +35,7 @@ B: Uber/Didi logbook that scans receipts + matches tolls. ATO-ready. Free to sta
 ## Full description (max 4000 chars)
 
 ```
-Rideshare AuLogbook is the all-in-one tax logbook app built specifically for Australian Uber and Didi drivers. It auto-tracks every kilometre with GPS, scans fuel and service receipts with on-device OCR, syncs your toll charges against E-Toll statements, and produces the ATO-ready reports your accountant actually wants.
+Rideshare AuLogbook is the all-in-one tax logbook app built specifically for Australian Uber and Didi drivers. It auto-tracks every kilometre with GPS, scans fuel and service receipts with smart detection, syncs your toll charges against E-Toll statements, and produces the ATO-ready reports your accountant actually wants.
 
 ★ THE FEATURES ★
 
@@ -63,8 +63,8 @@ Rideshare AuLogbook is the all-in-one tax logbook app built specifically for Aus
   AuLogbook matches each toll charge to the right trip by time + road. Flags tolls
   Uber or Didi may not have reimbursed you for (you have 10 days to chase them up).
 
-▸ SCAN RECEIPTS — ON-DEVICE OCR
-  Point your camera at a fuel or service receipt. ML Kit auto-crops, enhances, and
+▸ SCAN RECEIPTS — SMART DETECTION
+  Point your camera at a fuel or service receipt. AuLogbook auto-crops, enhances, and
   reads the date, total, litres, rate, GST and ABN — then shows you a verify screen
   with confidence flags on fields that need a second look.
 
@@ -91,8 +91,8 @@ Rideshare AuLogbook is the all-in-one tax logbook app built specifically for Aus
 
 ▸ PERSONAL CLOUD BACKUP
   Back up your entire logbook (trips + receipts + images) to a folder you choose —
-  Google Drive, Dropbox, OneDrive, anywhere SAF supports. Survives uninstall; restore
-  on a new phone with zero re-OCR.
+  Google Drive, Dropbox, OneDrive, anywhere your cloud provider supports. Survives uninstall; restore
+  on a new phone with zero re-scanning.
 
 ▸ EXPORT TO EMAIL / SHARE
   CSV, PDF, daily CSV, JSON backup — all shareable via your email, cloud drive,
@@ -111,7 +111,7 @@ is still yours — export to CSV / XLSX / PDF / JSON and walk away.
 ★ FREE FOREVER TO START ★
 
 ▸ Trip tracking + autostart
-▸ 20 receipts (with OCR scanner)
+▸ 20 receipts (with smart detection scanner)
 ▸ 1 vehicle
 ▸ Basic CSV export
 ▸ Service + rego reminders

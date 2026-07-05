@@ -17,7 +17,7 @@ marketing/
 ├── screenshots/               ← 8 Play Store screenshots (1080x1920 PNG)
 │   ├── 01_track.png
 │   ├── 02_receipts.png
-│   ├── 03_ocr_verify.png
+│   ├── 03_verify.png
 │   ├── 04_toll_sync.png
 │   ├── 05_reports.png
 │   ├── 06_dark_mode.png
