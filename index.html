@@ -114,14 +114,14 @@
     }
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
     }
     .feature-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
+      border-radius: 14px;
+      padding: 20px;
       transition: border-color 0.2s, transform 0.2s;
     }
     .feature-card:hover {
@@ -267,8 +267,9 @@
       <h1>Rideshare <span class="accent">AuLogbook</span></h1>
       <p class="tagline">
         The Android logbook app built for Australian Uber &amp; Didi drivers.
-        Auto-tracks trips with GPS, scans fuel receipts, syncs tolls against
-        E-Toll, and produces ATO-ready tax reports.
+        <strong>Free km tracking for life</strong> — auto-trips with GPS,
+        scans fuel receipts with OCR, syncs tolls against E-Toll, and produces
+        ATO-ready tax reports.
       </p>
       <div class="cta-row">
         <a class="cta cta-primary" href="https://play.google.com/store/apps/details?id=com.rideshare.aulogbook">
@@ -287,71 +288,96 @@
   <!-- Features -->
   <section class="features" id="features">
     <div class="container">
-      <h2 class="section-title">Built for the way you actually drive</h2>
+      <h2 class="section-title">Every feature a driver needs for tax time</h2>
       <p class="section-sub">
-        Every feature exists because a real rideshare driver needed it for tax time.
-        No fluff, no ads, no servers — just a clean logbook you can hand to your accountant.
+        14 features, all built for Australian Uber &amp; Didi drivers.
+        The core (GPS tracking + autostart + ATO logbook) is free for life —
+        Pro adds the productivity multipliers.
       </p>
       <div class="feature-grid">
 
         <div class="feature-card">
-          <div class="feature-icon">🚗</div>
-          <h3>Auto-tracks every trip</h3>
-          <p>
-            GPS tracks your shift end-to-end — including deadhead legs between jobs.
-            Auto-starts when you drive 10+ km/h for 20 seconds. Survives Uber/Didi
-            being in the foreground via Android's foreground service.
-          </p>
+          <div class="feature-icon">🆓</div>
+          <h3>Free km tracking — forever</h3>
+          <p>The core function is free for life. No time limit. No credit card. No "free trial". Drive, track, export — for free.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📷</div>
-          <h3>Receipt scanner with OCR</h3>
-          <p>
-            Point at a fuel or service receipt — ML Kit auto-crops and reads the
-            date, total, litres, rate, GST and ABN. Verify screen flags low-confidence
-            fields so you catch OCR errors before they cost you at tax time.
-          </p>
+          <div class="feature-icon">⚡</div>
+          <h3>AutoStart — drives itself</h3>
+          <p>Auto-starts a shift when you drive 10+ km/h for 20 seconds. No need to remember to tap "Start".</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛰️</div>
+          <h3>Survives Uber &amp; Didi</h3>
+          <p>Background tracking via Android's foreground service keeps recording when you switch apps or lock the screen.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛢️</div>
+          <h3>Auto toll + airport detection</h3>
+          <p>Detects M5, NorthConnex, M2/M4/M7/M8, Lane Cove, Eastern Distributor, WestConnex + all AU airport zones. One-tap pre-fill.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🔗</div>
-          <h3>Toll Sync (E-Toll)</h3>
-          <p>
-            Download the official CSV from Transport NSW E-Toll, and AuLogbook
-            auto-matches each toll charge to the right trip by time + road. Flags
-            tolls Uber/Didi may not have reimbursed you for.
-          </p>
+          <h3>Toll Sync (E-Toll) · Pro</h3>
+          <p>Import the official E-Toll CSV — auto-matches each charge to the right trip by time + road. Flags unreimbursed tolls.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <h3>Scan receipts with OCR</h3>
+          <p>ML Kit reads date, total, litres, rate, GST and ABN. Verify screen flags low-confidence fields so you catch errors.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">📊</div>
-          <h3>ATO-ready reports</h3>
-          <p>
-            Cents-per-km AND logbook-method calculations. Best 12-week sample
-            detection. Quarterly BAS workbooks for your accountant. CSV, PDF,
-            and multi-tab XLSX exports.
-          </p>
+          <h3>Export to spreadsheet · Pro</h3>
+          <p>Multi-tab XLSX workbook per year (Q1–Q4 + Year Summary, photos bundled). Drop straight into your BAS workflow.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🚗</div>
-          <h3>Multi-vehicle logbooks</h3>
-          <p>
-            Driving for Uber on a private plate some nights and a rented EV on others?
-            Maintain separate logbooks per vehicle, with per-shift assignment and
-            service reminders.
-          </p>
+          <h3>Multiple vehicles · Pro</h3>
+          <p>Private plate some nights, rented EV on others? Maintain separate logbooks per vehicle with per-shift assignment.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📍</div>
-          <h3>Home-leg classification</h3>
-          <p>
-            First deadhead leaving home + last deadhead returning home = private
-            (non-deductible). Between-jobs driving = business. The logbook-correct
-            split, automated.
-          </p>
+          <div class="feature-icon">🔔</div>
+          <h3>Service + rego reminders</h3>
+          <p>Set service intervals (3 months / 10,000 km) and rego expiry per vehicle. Never miss a renewal again.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>ATO-compliant logbook</h3>
+          <p>Captures the continuous 12-week log the ATO requires. Detects your best business-use-% window (valid 5 years).</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Auto business / private %</h3>
+          <p>Commute legs = private, between-jobs driving = business. The logbook-correct split, automated — no spreadsheets.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">☁️</div>
+          <h3>Personal cloud backup</h3>
+          <p>Back up to a folder you choose — Google Drive, Dropbox, anywhere. Survives uninstall; restore on a new phone.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📤</div>
+          <h3>Export to email / share</h3>
+          <p>CSV, PDF, daily CSV, JSON backup — all shareable via your email, cloud drive, WhatsApp. Your data is portable.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌓</div>
+          <h3>Light + dark mode</h3>
+          <p>Auto (follows system), Light, or Dark. Pick whatever suits your shift — and switch any time.</p>
         </div>
 
       </div>
