@@ -139,9 +139,13 @@
     <div class="summary-box">
       <h2>TL;DR</h2>
       <p>
-        <strong>AuLogbook does not collect, transmit, sell, or share your personal data.</strong>
-        Everything the app records stays on your phone. We have no servers. We do not run
-        analytics. We do not show ads. We do not have user accounts.
+        <strong>AuLogbook has no servers and does not collect, sell, or share your personal data.</strong>
+        Your trips, receipts, and logbook records stay on your phone. We do not run analytics, we do not
+        show ads, and we do not have user accounts. Two limited network calls exist:
+        <strong>(1)</strong> GPS coordinates are sent to Google's geocoder to convert lat/lon into street
+        addresses (used to label trip start/end points). <strong>(2)</strong> Subscription status is read
+        from Google Play Billing (no payment details). No trip data, receipts, or personal information
+        ever leaves your device.
       </p>
     </div>
 
@@ -160,7 +164,7 @@
     <ul>
       <li><strong>What:</strong> Continuous GPS coordinates while a shift is active, plus intermittent location samples while the autostart monitor is armed.</li>
       <li><strong>Why:</strong> To record trip distance for tax logbook purposes (ATO logbook method) and to detect toll-road crossings.</li>
-      <li><strong>Where it goes:</strong> Stays on your device. Stored in Android's app-private storage. <strong>Never transmitted off the device.</strong></li>
+      <li><strong>Where it goes:</strong> Trip GPS tracks stay on your device in Android's app-private storage. <strong>However</strong>, to display street addresses (e.g. "Bondi Junction") instead of raw coordinates, GPS latitude and longitude are sent to Google's geocoding service via your phone's native location API (Android's built-in <code>Geocoder</code>). This is the same function every Android app uses for address lookup — it goes through <strong>your phone's</strong> Google Play Services, not AuLogbook's own server or API key. AuLogbook does not have or use any Google API key. The geocoder sends only the coordinates needed for one address lookup, not your trip history or personal data. If your phone is offline, the address shows as raw coordinates instead. We (the developer) have no way to see, log, or charge for these lookups — they happen entirely between your phone and Google.</li>
       <li><strong>Foreground vs background:</strong> Location is captured both while the app is open and while it is in the background (so tracking continues when you switch to Uber/Didi). This is essential to the app's core function — without it, trip distances would be inaccurate and your tax logbook invalid.</li>
     </ul>
 
