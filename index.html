@@ -672,7 +672,7 @@
         <details class="faq-item">
           <summary>Why is there a 15 km/h threshold for auto-start?</summary>
           <div class="answer">
-            10 km/h was too low — it triggered while walking or waiting at traffic lights. 15 km/h is firmly "moving in a car." The app requires 3 consecutive readings above 15 km/h (about 6 seconds at the 2-second polling rate) before starting, so a single GPS spike can't start a phantom shift.
+            The app waits until you're genuinely moving in a car — 15 km/h sustained for about 6 seconds — before starting a shift. That way walking to your car, waiting at lights or a brief GPS glitch won't trigger a false trip.
           </div>
         </details>
 
