@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rideshare AuLogbook — Tax logbook + receipt scanner for Uber &amp; Didi drivers</title>
   <meta name="description" content="The Android logbook app built for Australian Uber and Didi drivers. Auto-tracks trips with GPS, scans fuel receipts, syncs tolls against E-Toll, and builds an ATO-ready logbook. Free tracking for life; Pro adds exports.">
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rideshare AuLogbook — Tax logbook for Uber & Didi drivers">
+  <meta property="og:description" content="Free km tracking for life. GPS auto-trips, ATO-compliant logbook, receipt scanning, toll sync. Built for Australian Uber & Didi drivers.">
+  <meta property="og:image" content="https://transactionbook.github.io/aulogbook/feature-graphic.png">
+  <meta property="og:url" content="https://transactionbook.github.io/aulogbook/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rideshare AuLogbook — Tax logbook for Uber & Didi drivers">
+  <meta name="twitter:description" content="Free km tracking for life. GPS auto-trips, ATO-compliant logbook, receipt scanning, toll sync.">
+  <meta name="twitter:image" content="https://transactionbook.github.io/aulogbook/feature-graphic.png">
+  <link rel="icon" type="image/png" href="icon.png">
+
   <style>
     :root {
       --navy: #0a0f1e;
@@ -94,6 +107,37 @@
       color: var(--teal);
     }
 
+    /* How it works */
+    .how-it-works {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .step {
+      text-align: center;
+    }
+    .step-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(0,229,176,0.12);
+      border: 2px solid var(--teal);
+      color: var(--teal);
+      font-size: 20px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--text-dim); }
+
     /* Features */
     .features {
       padding: 80px 0;
@@ -141,7 +185,7 @@
       color: var(--text-dim);
       font-size: 14px;
     }
-    /* Tier badges — every card now states plainly whether it is free or Pro. */
+    /* Tier badges */
     .tier {
       display: inline-block;
       font-size: 10px;
@@ -155,6 +199,47 @@
     }
     .tier-free { background: rgba(0,229,176,0.12); color: var(--teal); border: 1px solid rgba(0,229,176,0.35); }
     .tier-pro  { background: rgba(255,196,0,0.12); color: #ffc400; border: 1px solid rgba(255,196,0,0.35); }
+
+    /* Screenshot gallery */
+    .gallery {
+      padding: 80px 0;
+      background: var(--navy-deep);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .gallery-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 16px 0;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .gallery-scroll::-webkit-scrollbar { height: 6px; }
+    .gallery-scroll::-webkit-scrollbar-track { background: var(--navy-deep); }
+    .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .gallery-item {
+      flex-shrink: 0;
+      width: 260px;
+      scroll-snap-align: center;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+    }
+    .gallery-item .caption {
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .gallery-item { width: 220px; }
+    }
 
     /* Privacy */
     .privacy-band {
@@ -174,6 +259,46 @@
       max-width: 600px;
       margin: 0 auto;
       font-size: 16px;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 80px 0;
+    }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+    .faq-item summary {
+      padding: 20px 0;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 22px;
+      color: var(--teal);
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .faq-item .answer {
+      padding: 0 0 20px;
+      color: var(--text-dim);
+      font-size: 15px;
+      line-height: 1.7;
     }
 
     /* Pricing */
@@ -305,6 +430,31 @@
     </div>
   </section>
 
+  <!-- How it works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">Three steps from download to a tax-ready logbook.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Start your shift</h3>
+          <p>Enter your odometer reading. Or let AutoStart detect you're driving at 15 km/h and begin automatically — no tap needed.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Drive &amp; track</h3>
+          <p>GPS records every kilometre in the background, even when Uber or Didi is open. Tolls and airport zones detected automatically.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Export at tax time</h3>
+          <p>Generate an ATO-ready logbook, CSV, PDF or Excel workbook. Your business-use % and 12-week window are calculated for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Features -->
   <section class="features" id="features">
     <div class="container">
@@ -416,6 +566,48 @@
     </div>
   </section>
 
+  <!-- Screenshot gallery -->
+  <section class="gallery">
+    <div class="container">
+      <h2 class="section-title">See it in action</h2>
+      <p class="section-sub">Swipe through the app — left to right.</p>
+      <div class="gallery-scroll">
+        <div class="gallery-item">
+          <img src="screenshots/01_track.png" alt="Track screen showing live GPS tracking with distance, speed and shift timer" loading="lazy">
+          <div class="caption">Live tracking — distance, speed, GPS points</div>
+        </div>
+        <div class="gallery-item">
+          <img src="screenshots/02_receipts.png" alt="Receipts list with scanned fuel receipts" loading="lazy">
+          <div class="caption">Receipt list — every scan, categorised</div>
+        </div>
+        <div class="gallery-item">
+          <img src="screenshots/03_verify.png" alt="Receipt verify screen showing OCR fields with confidence flags" loading="lazy">
+          <div class="caption">Smart detection — fields checked before you save</div>
+        </div>
+        <div class="gallery-item">
+          <img src="screenshots/04_toll_sync.png" alt="Toll Sync screen matching E-Toll charges to trips" loading="lazy">
+          <div class="caption">Toll Sync — match charges, track claims</div>
+        </div>
+        <div class="gallery-item">
+          <img src="screenshots/05_reports.png" alt="Reports screen with ATO logbook and business-use percentage" loading="lazy">
+          <div class="caption">Reports — your ATO figures at a glance</div>
+        </div>
+        <div class="gallery-item">
+          <img src="screenshots/06_dark_mode.png" alt="Dark mode showing the track screen at night" loading="lazy">
+          <div class="caption">Dark mode — easier on night shifts</div>
+        </div>
+        <div class="gallery-item">
+          <img src="screenshots/07_multi_vehicle.png" alt="Multiple vehicle selection screen" loading="lazy">
+          <div class="caption">Multiple vehicles — separate logbooks</div>
+        </div>
+        <div class="gallery-item">
+          <img src="screenshots/08_paywall.png" alt="Pro subscription paywall with pricing" loading="lazy">
+          <div class="caption">Pro — unlimited receipts and all exports</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Privacy band -->
   <section class="privacy-band">
     <div class="container">
@@ -425,6 +617,73 @@
         stays in app-private storage on your device. We don't see your trips, your
         receipts, your E-Toll login, or your Uber/Didi fares — ever.
       </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Questions?</h2>
+      <p class="section-sub">The things drivers ask before downloading.</p>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>Will this drain my battery?</summary>
+          <div class="answer">
+            The GPS runs at 2-second intervals while you're driving — the same rate Google Maps uses for navigation. When you're parked, the background monitor drops to a low-power idle check that barely registers. Most drivers report no noticeable difference in daily battery life. The foreground service notification ("AuLogbook monitoring for movement") is how Android knows to keep it alive — it's not doing heavy work while you're stopped.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does it keep tracking when Uber or Didi is open?</summary>
+          <div class="answer">
+            Yes. AuLogbook uses Android's foreground service to maintain GPS recording even when another app is in the foreground. You can switch to Uber, accept a trip, navigate with Google Maps, lock your screen — the kilometre counter keeps climbing. If your phone's battery optimisation is aggressive (common on Xiaomi, Oppo, Samsung), the app warns you and shows you exactly what to change in Settings.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do I need to do anything at tax time?</summary>
+          <div class="answer">
+            Just open Reports and tap Export. The app builds a CSV, PDF or Excel workbook with every trip, its business/private classification, toll amounts, odometer readings and your business-use percentage. Your accountant can drop it straight into your return. The ATO logbook method requires 12 continuous weeks of records — the app tracks that automatically and tells you when you've met the threshold. Once established, the percentage is valid for 5 years.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if I drive for both Uber and Didi?</summary>
+          <div class="answer">
+            The app tracks both. Tap "Uber" or "Didi" when a rider gets in, and tap "Dropoff" when they get out. Each platform trip is recorded separately with its own distance, tolls and time. The classification handles the deadhead legs between jobs automatically — driving between an Uber dropoff and a Didi pickup is business, not private.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is my data sent anywhere?</summary>
+          <div class="answer">
+            No. There are no accounts, no servers, no analytics and no ads. Everything — trips, receipts, photos, settings — stays in the app's private storage on your phone. The only time data leaves is when you explicitly export or back up (to a folder you choose, or via the share sheet to your email/cloud). You can back up automatically to Google Drive or Dropbox, and that backup is encrypted by your cloud provider — AuLogbook itself never transmits anything.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens to my data if I uninstall?</summary>
+          <div class="answer">
+            If you've set up Auto-Backup (free), your data survives in the backup folder you chose. Reinstall, link the same folder, and everything restores — trips, receipts, photos, vehicles and settings. If you never set up a backup, uninstalling deletes everything (Android clears app-private storage). That's why the backup prompt appears after your first few trips.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Why is there a 15 km/h threshold for auto-start?</summary>
+          <div class="answer">
+            10 km/h was too low — it triggered while walking or waiting at traffic lights. 15 km/h is firmly "moving in a car." The app requires 3 consecutive readings above 15 km/h (about 6 seconds at the 2-second polling rate) before starting, so a single GPS spike can't start a phantom shift.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the difference between Free and Pro?</summary>
+          <div class="answer">
+            Tracking, the ATO logbook, auto-start, toll detection, reminders and automatic cloud backup are free forever — no time limit, no credit card. Pro ($4.99/month or $39/year) adds unlimited receipt scanning (free tier is 20 lifetime), all export formats (XLSX, CSV, PDF, toll CSV), manual JSON backup/restore, Toll Sync (E-Toll CSV matching with the 10-day reimbursement tracker), and multiple vehicles. Cancel anytime via the Play Store.
+          </div>
+        </details>
+
+      </div>
     </div>
   </section>
 
