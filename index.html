@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rideshare AuLogbook — Tax logbook + receipt scanner for Uber & Didi drivers</title>
-  <meta name="description" content="The free Android logbook app built for Australian Uber and Didi drivers. Auto-tracks trips with GPS, scans fuel receipts with the scanner, syncs tolls against E-Toll statements — and produces ATO-ready tax reports.">
+  <title>Rideshare AuLogbook — Tax logbook + receipt scanner for Uber &amp; Didi drivers</title>
+  <meta name="description" content="The Android logbook app built for Australian Uber and Didi drivers. Auto-tracks trips with GPS, scans fuel receipts, syncs tolls against E-Toll, and builds an ATO-ready logbook. Free tracking for life; Pro adds exports.">
   <style>
     :root {
       --navy: #0a0f1e;
@@ -141,6 +141,20 @@
       color: var(--text-dim);
       font-size: 14px;
     }
+    /* Tier badges — every card now states plainly whether it is free or Pro. */
+    .tier {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 8px;
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
+    .tier-free { background: rgba(0,229,176,0.12); color: var(--teal); border: 1px solid rgba(0,229,176,0.35); }
+    .tier-pro  { background: rgba(255,196,0,0.12); color: #ffc400; border: 1px solid rgba(255,196,0,0.35); }
 
     /* Privacy */
     .privacy-band {
@@ -231,9 +245,15 @@
       color: var(--text-dim);
     }
     .price-card ul li::before {
-      content: '✓ ';
+      content: '\2713 ';
       color: var(--teal);
       font-weight: 700;
+    }
+    .price-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 16px;
+      line-height: 1.5;
     }
 
     /* Footer */
@@ -262,25 +282,25 @@
   <section class="hero">
     <div class="container">
       <div class="hero-logo">
-        <img src="icon.png" alt="AuLogbook icon" onerror="this.style.display='none'">
+        <img src="icon.png" alt="AuLogbook icon">
       </div>
       <h1>Rideshare <span class="accent">AuLogbook</span></h1>
       <p class="tagline">
         The Android logbook app built for Australian Uber &amp; Didi drivers.
-        <strong>Free km tracking for life</strong> — auto-trips with GPS,
-        scans fuel receipts with smart detection, syncs tolls against E-Toll, and produces
-        ATO-ready tax reports.
+        <strong>Free km tracking for life</strong> — auto-trips with GPS, an
+        ATO-compliant logbook with your business-use %, and fuel receipt scanning.
+        Pro adds unlimited receipts and every export format.
       </p>
       <div class="cta-row">
         <a class="cta cta-primary" href="https://play.google.com/store/apps/details?id=com.rideshare.aulogbook">
-          ▶ Get it on Google Play
+          &#9654; Get it on Google Play
         </a>
         <a class="cta cta-secondary" href="#features">
           See features
         </a>
       </div>
       <div class="pricing-tease">
-        Free for 20 receipts · Pro from $4.99/mo · Cancel anytime
+        Free tracking forever &middot; 20 lifetime receipt scans &middot; Pro from $4.99/mo
       </div>
     </div>
   </section>
@@ -290,93 +310,105 @@
     <div class="container">
       <h2 class="section-title">Every feature a driver needs for tax time</h2>
       <p class="section-sub">
-        14 features, all built for Australian Uber &amp; Didi drivers.
-        The core (GPS tracking + autostart + ATO logbook) is free for life —
-        Pro adds the productivity multipliers.
+        16 features, all built for Australian Uber &amp; Didi drivers.
+        Tracking, the ATO logbook and automatic cloud backup are free for life —
+        Pro unlocks unlimited receipts and exporting your data.
       </p>
       <div class="feature-grid">
 
         <div class="feature-card">
-          <div class="feature-icon">🆓</div>
-          <h3>Free km tracking — forever</h3>
-          <p>The core function is free for life. No time limit. No credit card. No "free trial". Drive, track, export — for free.</p>
+          <div class="feature-icon">&#127942;</div>
+          <h3>Free km tracking — forever<span class="tier tier-free">Free</span></h3>
+          <p>The core function is free for life. No time limit. No credit card. No "free trial". Drive, track and see your ATO logbook — for free.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>AutoStart — drives itself</h3>
-          <p>Auto-starts a shift when you drive 10+ km/h for 20 seconds. No need to remember to tap "Start".</p>
+          <div class="feature-icon">&#9889;</div>
+          <h3>AutoStart — drives itself<span class="tier tier-free">Free</span></h3>
+          <p>Auto-starts a shift once you're driving at 15 km/h, sustained over about 6 seconds. It also checks the car really moved, so a GPS glitch while you're parked won't start a phantom trip.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🛰️</div>
-          <h3>Survives Uber &amp; Didi</h3>
+          <div class="feature-icon">&#128752;</div>
+          <h3>Survives Uber &amp; Didi<span class="tier tier-free">Free</span></h3>
           <p>Background tracking via Android's foreground service keeps recording when you switch apps or lock the screen.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🛢️</div>
-          <h3>Auto toll + airport detection</h3>
-          <p>Detects M5, NorthConnex, M2/M4/M7/M8, Lane Cove, Eastern Distributor, WestConnex + all AU airport zones. One-tap pre-fill.</p>
+          <div class="feature-icon">&#128737;</div>
+          <h3>Auto toll + airport detection<span class="tier tier-free">Free</span></h3>
+          <p>49 toll roads nationwide. Sydney (M5, M2/M4/M7/M8, NorthConnex, WestConnex, Lane Cove, Eastern Distributor, Cross City), Melbourne (CityLink, EastLink, West Gate Tunnel) and Brisbane (Gateway, Logan, AirportLinkM7) — plus all AU airport zones. One-tap pre-fill.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🔗</div>
-          <h3>Toll Sync (E-Toll) · Pro</h3>
-          <p>Import the official E-Toll CSV — auto-matches each charge to the right trip by time + road. Flags unreimbursed tolls.</p>
+          <div class="feature-icon">&#128279;</div>
+          <h3>Toll Sync + claim tracker<span class="tier tier-pro">Pro</span></h3>
+          <p>Import the official E-Toll CSV — auto-matches each charge to the right trip by time + road. Then tracks Uber's 10-day reimbursement window, counts down days remaining, and flags expired claims so you never miss money owed.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📷</div>
-          <h3>Scan receipts with smart detection</h3>
-          <p>AuLogbook reads date, total, litres, rate, GST and ABN. Verify screen flags low-confidence fields so you catch errors.</p>
+          <div class="feature-icon">&#128247;</div>
+          <h3>Scan receipts with smart detection<span class="tier tier-free">20 free</span></h3>
+          <p>AuLogbook reads date, total, litres, rate, GST and ABN. Verify screen flags low-confidence fields so you catch errors. 20 lifetime scans free, unlimited on Pro.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Export to spreadsheet · Pro</h3>
-          <p>Multi-tab XLSX workbook per year (Q1–Q4 + Year Summary, photos bundled). Drop straight into your BAS workflow.</p>
+          <div class="feature-icon">&#128202;</div>
+          <h3>Export to spreadsheet<span class="tier tier-pro">Pro</span></h3>
+          <p>Multi-tab XLSX workbook, one sheet per vehicle, photos bundled. Drop straight into your BAS workflow.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🚗</div>
-          <h3>Multiple vehicles · Pro</h3>
-          <p>Private plate some nights, rented EV on others? Maintain separate logbooks per vehicle with per-shift assignment.</p>
+          <div class="feature-icon">&#128663;</div>
+          <h3>Multiple vehicles<span class="tier tier-pro">Pro</span></h3>
+          <p>Private plate some nights, rented car on others? Maintain a separate ATO logbook per vehicle with per-shift assignment.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🔔</div>
-          <h3>Service + rego reminders</h3>
+          <div class="feature-icon">&#9889;</div>
+          <h3>Petrol, diesel, hybrid or EV<span class="tier tier-free">Free</span></h3>
+          <p>Record how your car is powered. Electric vehicles skip the engine-capacity field the ATO asks for, and your logbook says why instead of leaving it blank.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128276;</div>
+          <h3>Service + rego reminders<span class="tier tier-free">Free</span></h3>
           <p>Set service intervals (3 months / 10,000 km) and rego expiry per vehicle. Never miss a renewal again.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📋</div>
-          <h3>ATO-compliant logbook</h3>
-          <p>Captures the continuous 12-week log the ATO requires. Detects your best business-use-% window (valid 5 years).</p>
+          <div class="feature-icon">&#128203;</div>
+          <h3>ATO-compliant logbook<span class="tier tier-free">Free</span></h3>
+          <p>Odometer readings taken at every shift start and end, so your logbook period is built from real dashboard figures — not a sum of the trips the app happened to see.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>Auto business / private %</h3>
+          <div class="feature-icon">&#128200;</div>
+          <h3>Best 12-week window<span class="tier tier-free">Free</span></h3>
+          <p>The ATO needs 12 continuous weeks. AuLogbook finds your strongest window and shows it beside your full-year figure, so you can choose. Valid 5 years.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#128176;</div>
+          <h3>Auto business / private %<span class="tier tier-free">Free</span></h3>
           <p>Commute legs = private, between-jobs driving = business. The logbook-correct split, automated — no spreadsheets.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">☁️</div>
-          <h3>Personal cloud backup</h3>
-          <p>Back up to a folder you choose — Google Drive, Dropbox, anywhere. Survives uninstall; restore on a new phone.</p>
+          <div class="feature-icon">&#9729;</div>
+          <h3>Personal cloud backup<span class="tier tier-free">Free</span></h3>
+          <p>Back up to a folder you choose — Google Drive, Dropbox, anywhere. Survives uninstall; restore on a new phone. Free for everyone — data safety is never behind a paywall.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">📤</div>
-          <h3>Export to email / share</h3>
-          <p>CSV, PDF, daily CSV, JSON backup — all shareable via your email, cloud drive, WhatsApp. Your data is portable.</p>
+          <div class="feature-icon">&#128228;</div>
+          <h3>Export to email / share<span class="tier tier-pro">Pro</span></h3>
+          <p>CSV, PDF, daily CSV, toll CSV and JSON backup — all shareable via email, cloud drive or WhatsApp. Your data is portable.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon">🌓</div>
-          <h3>Light + dark mode</h3>
+          <div class="feature-icon">&#127761;</div>
+          <h3>Light + dark mode<span class="tier tier-free">Free</span></h3>
           <p>Auto (follows system), Light, or Dark. Pick whatever suits your shift — and switch any time.</p>
         </div>
 
@@ -387,7 +419,7 @@
   <!-- Privacy band -->
   <section class="privacy-band">
     <div class="container">
-      <h2>🔒 Your data never leaves your phone</h2>
+      <h2>&#128274; Your data never leaves your phone</h2>
       <p>
         No accounts. No servers. No analytics. No ads. Everything AuLogbook records
         stays in app-private storage on your device. We don't see your trips, your
@@ -401,8 +433,8 @@
     <div class="container">
       <h2 class="section-title">Simple, honest pricing</h2>
       <p class="section-sub">
-        Free forever for casual use. Pro unlocks the features that pay for themselves
-        at tax time. Cancel anytime.
+        Track for free, forever. Pro is for getting your data out at tax time.
+        Cancel anytime.
       </p>
       <div class="pricing-grid">
 
@@ -411,32 +443,38 @@
           <div class="amount">$0</div>
           <div class="period">forever</div>
           <ul>
-            <li>Trip tracking + autostart</li>
-            <li>20 receipts (smart detection)</li>
+            <li>Unlimited trip tracking + autostart</li>
+            <li>Full ATO logbook &amp; business-use %</li>
+            <li>Best 12-week window finder</li>
+            <li>20 lifetime receipt scans</li>
             <li>1 vehicle</li>
-            <li>Basic CSV export</li>
-            <li>Weekly + monthly reminders</li>
+            <li>Auto toll + airport detection</li>
+            <li>Service, rego, weekly &amp; monthly reminders</li>
+            <li>Automatic cloud backup (to a folder you choose)</li>
           </ul>
         </div>
 
         <div class="price-card featured">
           <h3>Pro</h3>
           <div class="amount">$39<span style="font-size:24px;">/yr</span></div>
-          <div class="period">or $4.99/month · save 35%</div>
+          <div class="period">or $4.99/month &middot; save 35%</div>
           <ul>
             <li><strong>Unlimited receipts</strong></li>
-            <li><strong>XLSX export</strong> (multi-tab BAS workbook)</li>
+            <li><strong>All exports</strong> — XLSX, CSV, PDF, daily CSV, toll CSV</li>
+            <li><strong>Manual backup &amp; restore</strong> (JSON export/import)</li>
             <li><strong>Toll Sync</strong> (E-Toll CSV matching)</li>
             <li><strong>Multiple vehicles</strong></li>
-            <li>Best 12-week logbook window</li>
             <li>Priority support</li>
           </ul>
         </div>
 
       </div>
-      <p style="text-align:center; margin-top:32px; color:var(--text-dim); font-size:14px;">
+      <p class="price-note" style="text-align:center;">
+        Exporting and backing up your data are Pro features. Tracking, the ATO
+        logbook and your business-use percentage are free for life and always
+        visible in the app.<br>
         Available via Google Play. Manage or cancel anytime under
-        <em>Play Store → Subscriptions</em>.
+        <em>Play Store &rarr; Subscriptions</em>.
       </p>
     </div>
   </section>
@@ -449,7 +487,7 @@
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="mailto:transactionbook@gmail.com">Contact</a>
       </div>
-      <div>© 2026 Rideshare AuLogbook · Made in Australia 🇦🇺 · Built for drivers, by a driver</div>
+      <div>&copy; 2026 Rideshare AuLogbook &middot; Made in Australia &middot; Built for drivers, by a driver</div>
     </div>
   </footer>
 
